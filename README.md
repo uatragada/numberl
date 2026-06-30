@@ -5,8 +5,9 @@ question vocabulary in
 [PantherHale/number-guessing-rl](https://github.com/PantherHale/number-guessing-rl).
 
 The goal is simple: find the secret number from 1 to 1000. Instead of typing
-freeform questions, players choose from the same structured math questions used
-by the reinforcement-learning project, then submit a final guess.
+freeform questions, players build their own structured math statements from the
+same safe question vocabulary used by the reinforcement-learning project, then
+submit a final guess.
 
 ## Why this exists
 
@@ -18,11 +19,28 @@ the same challenge and compare themselves against the AI benchmark.
 
 - The secret number is between 1 and 1000.
 - You get up to 7 questions.
-- You can ask each question only once.
+- You build each question from dropdowns and number slots.
+- You can ask each exact statement only once.
 - You can ask at most 2 questions from the same type.
 - After asking questions, submit one final guess.
 - Daily mode uses a stable number for the day.
 - Practice mode starts a random round.
+
+## Statement Builder
+
+Numberl does not use a freeform question parser. Players can make their own
+questions by selecting the allowed parts of each statement:
+
+- Range: choose the lower and upper bound.
+- Proximity: choose the two comparison numbers.
+- Modular: choose only modulo 2, 3, 4, or 5.
+- Digit Sum: choose the threshold.
+- Special: choose one supported number property.
+- Digit Compare: choose two digit positions.
+- Divisible: choose one supported divisor.
+
+This keeps the game flexible for humans while still matching the structured
+action space from the RL project.
 
 ## Question types
 
